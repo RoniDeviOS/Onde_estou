@@ -22,6 +22,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         // quem gerencia o CLLocationManager é a própria classe (contexto) ViewController
         gerenciadorLocalizacao.delegate = self
+        gerenciadorLocalizacao.desiredAccuracy = kCLLocationAccuracyBest
+        gerenciadorLocalizacao.requestWhenInUseAuthorization()
+        gerenciadorLocalizacao.startUpdatingLocation()
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        if status != .authorizedWhenInUse {
+            var alertaController = UIAlertController(title: "Permissão de localização",
+                                                     message: "Necessário permissão para acesso a sua localização! Por favor habilite.",
+                                                     preferredStyle: .alert)
+            
+            var acaoConfiguracoes = UIAlertAction(title: "Abrir configurações", style: .default, handler: (UIAlertAction) -> Void)?)
+            
+            
+            
+            var acaoCancelar = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+            
+        }
         
     }
 
