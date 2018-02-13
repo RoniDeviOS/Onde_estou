@@ -12,6 +12,7 @@
 		E0360E5220338872000174C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0360E5020338872000174C7 /* Main.storyboard */; };
 		E0360E5420338872000174C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0360E5320338872000174C7 /* Assets.xcassets */; };
 		E0360E5720338872000174C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0360E5520338872000174C7 /* LaunchScreen.storyboard */; };
+		E0360E6020338982000174C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0360E5F203388AF000174C7 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E0360E5320338872000174C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0360E5620338872000174C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0360E5820338872000174C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0360E5F203388AF000174C7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0360E6020338982000174C7 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				E0360E4B20338872000174C7 /* Onde estou */,
 				E0360E4A20338872000174C7 /* Products */,
+				E0360E5E203388AF000174C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				E0360E5820338872000174C7 /* Info.plist */,
 			);
 			path = "Onde estou";
+			sourceTree = "<group>";
+		};
+		E0360E5E203388AF000174C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0360E5F203388AF000174C7 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6NA384NJG;
 				INFOPLIST_FILE = "Onde estou/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.tresrw.Onde-estou";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A6NA384NJG;
 				INFOPLIST_FILE = "Onde estou/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.tresrw.Onde-estou";
 				PRODUCT_NAME = "$(TARGET_NAME)";

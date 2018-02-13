@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    //Mapa
+    @IBOutlet weak var mapa: MKMapView!
+    
+    //Gerenciador de localização
+    var gerenciadorLocalizacao = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // quem gerencia o CLLocationManager é a própria classe (contexto) ViewController
+        gerenciadorLocalizacao.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
