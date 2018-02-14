@@ -20,26 +20,40 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // quem gerencia o CLLocationManager é a própria classe (contexto) ViewController
-        gerenciadorLocalizacao.delegate = self
-        gerenciadorLocalizacao.desiredAccuracy = kCLLocationAccuracyBest
-        gerenciadorLocalizacao.requestWhenInUseAuthorization()
-        gerenciadorLocalizacao.startUpdatingLocation()
+        gerenciadorLocalizacao.delegate = self // quem gerencia o CLLocationManager é a própria classe (contexto) ViewController
+        gerenciadorLocalizacao.desiredAccuracy = kCLLocationAccuracyBest // Defini a melhor precisão para localização do usuário
+        gerenciadorLocalizacao.requestWhenInUseAuthorization() // Solicita autorização do usuário
+        gerenciadorLocalizacao.startUpdatingLocation() // atualiza em tempo real a localização do usuário
         
     }
     
+    // Método que verifica se o usuário mudou a autorização de acesso a localização
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
+        // se a localização está (!= ) diferente de autorizado
         if status != .authorizedWhenInUse {
-            var alertaController = UIAlertController(title: "Permissão de localização",
+            //Mensagem de permisão de acesso a localização
+            let alertaController = UIAlertController(title: "Permissão de localização",
                                                      message: "Necessário permissão para acesso a sua localização! Por favor habilite.",
                                                      preferredStyle: .alert)
+            // acessso as configurações do usuário
+            let acaoConfiguracoes = UIAlertAction(title: "Abrir configurações", style: .default, handler: { (alertaConfiguracoes) in
+                // Cria uma URL para acessar as configurações do aparelho do usuário
+                if let configuracoes = NSURL(string: UIApplicationOpenSettingsURLString){
+                    
+                        UIApplication.shared.open(configuracoes as URL) // acessa as preferências
+                    
+                }
+                
+            })
             
-            var acaoConfiguracoes = UIAlertAction(title: "Abrir configurações", style: .default, handler: (UIAlertAction) -> Void)?)
+            // botão cancelar
+            let acaoCancelar = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
             
+            alertaController.addAction(acaoConfiguracoes) // botão de acesso as configurações
+            alertaController.addAction(acaoCancelar)      // botão cancelar
             
-            
-            var acaoCancelar = UIAlertAction(title: "Cancelar", style: .default, handler: nil)
+            present(alertaController, animated: true, completion: nil)
             
         }
         
@@ -50,6 +64,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // Dispose of any resources that can be recreated.
     }
 
-
+    
 }
 
